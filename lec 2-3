@@ -4,18 +4,32 @@
 struct Cat {
     private:
         // Поля (атрибуты)
-        std::string name;
-        int age;
-        int fun;
+        std::string m_name;
+        int m_age;
+        int m_fun;
+        int& m_ref;
+
 
     public:
+        // Default ctor
+        Cat() = default;
+        // Member initilazer list
+        Cat(const std::string& name, int age, int fun, int& ref):
+                m_name(name), m_age(age), m_fun(fun), m_ref(ref) {
+
+            std::cout << "ctor" << std::endl;
+        }
+        ~Cat() {
+            std::cout << "dtor" << std::endl;
+
+        }
         // Method
         void Pet() {
-            fun++;
+            m_fun++;
         }
 
         void SetName(const std::string& _name) {
-            name = _name;
+            m_name = _name;
         }
     
 };
@@ -23,9 +37,11 @@ struct Cat {
 int main() {
     int x = 5;
     // cat - exampler
-    Cat cat;
-    cat.Pet();
-    cat.SetName("Shusha");
+    // Cat cat;
+    int ref = 10;
+    Cat cat2("Shlepa", 1, 10, ref);
+    // cat.Pet();
+    // cat.SetName("Shusha");
 
     return 0;
 }
