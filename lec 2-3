@@ -1,0 +1,31 @@
+#include <iostream>
+#define N 1000
+
+struct Cat {
+    private:
+        // Поля (атрибуты)
+        std::string name;
+        int age;
+        int fun;
+
+    public:
+        // Method
+        void Pet() {
+            fun++;
+        }
+
+        void SetName(const std::string& _name) {
+            name = _name;
+        }
+    
+};
+
+int main() {
+    int x = 5;
+    // cat - exampler
+    Cat cat;
+    cat.Pet();
+    cat.SetName("Shusha");
+
+    return 0;
+}
